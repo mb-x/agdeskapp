@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fcff059e-5e38-485e-84ec-80d1ee90a05c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     facture.`id_facture` AS facture_id_facture,
+     facture.`id_cmd` AS facture_id_cmd,
+     facture.`date_facture` AS facture_date_facture,
+     client.`clt_ste` AS client_clt_ste,
+     commande.`prix_ht` AS commande_prix_ht,
+     commande.`prix_tt` AS commande_prix_tt,
+     detailcmd.`prix_unitaire` AS detailcmd_prix_unitaire,
+     detailcmd.`designation` AS detailcmd_designation,
+     detailcmd.`prix_impression` AS detailcmd_prix_impression,
+     detailcmd.`qte` AS detailcmd_qte
+FROM
+     `client` client INNER JOIN `commande` commande ON client.`id_client` = commande.`id_client`
+     INNER JOIN `detailcmd` detailcmd ON commande.`id_cmd` = detailcmd.`id_cmd`
+     INNER JOIN `facture` facture ON commande.`id_cmd` = facture.`id_cmd`]]>
+	</queryString>
+	<field name="facture_id_facture" class="java.lang.Long"/>
+	<field name="facture_id_cmd" class="java.lang.Long"/>
+	<field name="facture_date_facture" class="java.sql.Date"/>
+	<field name="client_clt_ste" class="java.lang.String"/>
+	<field name="commande_prix_ht" class="java.lang.Double"/>
+	<field name="commande_prix_tt" class="java.lang.Double"/>
+	<field name="detailcmd_prix_unitaire" class="java.lang.Double"/>
+	<field name="detailcmd_designation" class="java.lang.String"/>
+	<field name="detailcmd_prix_impression" class="java.lang.Double"/>
+	<field name="detailcmd_qte" class="java.lang.Long"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="67ea38e6-e426-4d02-bfb8-b18035d70320"/>
+				<staticText>
+					<reportElement x="20" y="20" width="234" height="43" forecolor="#FFFFFF" uuid="029f0280-402d-4af6-92c5-7988d63e3c2b"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[TITLE]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="395" y="43" width="180" height="20" forecolor="#FFFFFF" uuid="16a18561-1047-4f93-9890-bfb33edf8e11"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Add a description here]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="116">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="35" width="55" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="b9f23a67-5a13-4329-95a3-f1566202ad84"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[facture_id_facture]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="55" y="35" width="95" height="20" uuid="66ea55fc-c168-40ef-9d93-66e99675bc79"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{facture_id_facture}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="3133d540-1ee4-484a-8777-f98bdfb048ec"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="55" y="0" width="55" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="39c479d0-70d0-41b8-b2f3-30ce577d3d9e"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[facture_id_cmd]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="110" y="0" width="55" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="ffb0cf22-8704-4f0f-8eb6-32e4480feca8"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[facture_date_facture]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="165" y="0" width="55" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="b49b4228-519c-4498-be5c-b3674cf80d9f"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[client_clt_ste]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="220" y="0" width="55" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="b3f8f627-117d-4339-aa28-5789eec5e6fc"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[commande_prix_ht]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="275" y="0" width="55" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="136d6045-6392-4169-8aff-c8e2442ad368"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[commande_prix_tt]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="330" y="0" width="55" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="67a3479d-2e2b-46e2-a2f2-fcd3cfba16c6"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[detailcmd_prix_unitaire]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="385" y="0" width="55" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="1d5b73a2-8b5b-49f7-b30e-46711af7d039"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[detailcmd_designation]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="440" y="0" width="55" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="853f930f-a3c7-475d-83c7-7046c616b2d3"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[detailcmd_prix_impression]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="495" y="0" width="55" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="86ab48fb-35d5-400b-993a-046b68fff21c"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[detailcmd_qte]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="2406eedc-141b-4a59-ae1c-2fb6b68396b6"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="55" y="0" width="55" height="20" uuid="b9225370-c1da-425b-885a-ceb7593e5fdb"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{facture_id_cmd}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="110" y="0" width="55" height="20" uuid="0274dc32-5996-4f4b-84d6-a46058a7bd4f"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{facture_date_facture}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="165" y="0" width="55" height="20" uuid="304c50c5-a454-40f2-9701-5fb0eee004cf"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{client_clt_ste}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="220" y="0" width="55" height="20" uuid="f8fcd2fa-2f69-46b9-a9ee-75e3ccdd620c"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{commande_prix_ht}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="275" y="0" width="55" height="20" uuid="9dbf61a3-21a3-42da-95e6-0d455040abc5"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{commande_prix_tt}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="330" y="0" width="55" height="20" uuid="3e1f7d0c-03b6-4073-9872-cfbc62a20e18"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{detailcmd_prix_unitaire}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="385" y="0" width="55" height="20" uuid="3ec3233d-1287-469d-8839-33785cafc2b3"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{detailcmd_designation}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="440" y="0" width="55" height="20" uuid="1312827d-43c4-40dd-a020-d29b2eea27cc"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{detailcmd_prix_impression}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="495" y="0" width="55" height="20" uuid="0a1575d0-81aa-4292-9a57-5f3c65f862db"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{detailcmd_qte}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="7cbe15db-47ba-4bda-8d96-88e26a515598"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="b0d8e1f3-9a3f-40d6-a1fe-4117d9342569"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="5ecde1d1-e987-4e05-bfb0-757ba3fe9046"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>
